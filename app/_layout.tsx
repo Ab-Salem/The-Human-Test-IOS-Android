@@ -35,6 +35,7 @@ export default function RootLayout() {
             headerShown: false,
             contentStyle: { backgroundColor: 'black' },
             animation: 'fade',
+            statusBarTranslucent: true,
           }}
         >
           <Stack.Screen name="index" />
@@ -42,7 +43,7 @@ export default function RootLayout() {
           <Stack.Screen name="gameover" />
           <Stack.Screen name="settings" />
         </Stack>
-        <StatusBar style="auto" />
+        <StatusBar style="light" translucent />
       </ThemeProvider>
     </SafeAreaProvider>
   );

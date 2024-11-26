@@ -24,6 +24,7 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.anonymous.fungame",
       "infoPlist": {
+        "UIViewControllerBasedStatusBarAppearance": true,
         "UIBackgroundModes": ["audio"],
         "AVAudioSession": {
           "category": "ambient",
