@@ -1,0 +1,944 @@
+[
+  {
+    "event": "http://www.wikidata.org/entity/Q1192043",
+    "date": "0226-01-01T00:00:00Z",
+    "label": "Roman–Parthian Wars",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Parthia%20001ad.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q51624",
+    "date": "0033-01-01T00:00:00Z",
+    "label": "Resurrection of Jesus",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Rafael%20-%20ressureicaocristo01.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q133331",
+    "date": "0325-01-01T00:00:00Z",
+    "label": "First Council of Nicaea",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/THE%20FIRST%20COUNCIL%20OF%20NICEA.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q170531",
+    "date": "0451-11-02T00:00:00Z",
+    "label": "Council of Chalcedon",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Fourth%20ecumenical%20council%20of%20chalcedon%20-%201876.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q179826",
+    "date": "0381-01-01T00:00:00Z",
+    "label": "First Council of Constantinople",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Homilies%20of%20Gregory%20the%20Theologian%20gr.%20510%2C%20f%20723.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1518676",
+    "date": "0100-01-01T00:00:00Z",
+    "label": "healing of the man born blind",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Guarigione%20del%20cieco%20nato%20di%20De%20Ferrari%20Orazio.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q110234473",
+    "date": "0039-12-31T00:00:00Z",
+    "label": "coming of the Virgin Mary to St. James the Great in Zaragoza",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Secano-venida%20de%20la%20virgen%20del%20pilar.png"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q8122413",
+    "date": "0030-04-07T00:00:00Z",
+    "label": "Pilate's court",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/What-is-truth02.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q25420380",
+    "date": "0308-11-12T00:00:00Z",
+    "label": "Conference of Carnuntum",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Carnuntum%20Palace%20Ruins.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1566468",
+    "date": "0461-01-01T00:00:00Z",
+    "label": "Battle of Cartagena",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Carthaginensis%20Portus%20Ilicitanus.png"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q612221",
+    "date": "0468-01-01T00:00:00Z",
+    "label": "Battle of Cape Bon",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Cap%20Bon.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q2948126",
+    "date": "0450-01-01T00:00:00Z",
+    "label": "Battle of Finnsburg",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Britain.Anglo.Saxon.homelands.settlements.400.500.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q65466605",
+    "date": "0303-04-24T00:00:00Z",
+    "label": "martyrdom of Saint George",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Godfried%20Maes%20-%20Martyrdom%20of%20Saint%20George%20the%20Great.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q65508996",
+    "date": "0287-01-20T00:00:00Z",
+    "label": "martyrdom of Saint Sebastian",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Peter%20Paul%20Rubens%20-%20Der%20heilige%20Sebastian%20-%20Google%20Art%20Project.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q65625631",
+    "date": "0230-01-01T00:00:00Z",
+    "label": "martyrdom of Saint Cecilia",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Death%20of%20Saint%20Cecilia.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q4350094",
+    "date": "0476-01-01T00:00:00Z",
+    "label": "Deposition of Romulus Augustulus",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Young%20Folks%27%20History%20of%20Rome%20illus420.png"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q3024748",
+    "date": "0079-01-01T00:00:00Z",
+    "label": "destruction of Pompeii",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Moln%C3%A1r%20Destruction%20of%20Pompei%201876.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1155064",
+    "date": "0390-01-01T00:00:00Z",
+    "label": "massacre of Thessalonica",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Massacre%20in%20the%20Hippodrome%20of%20Thessaloniki%20in%20390%2C%2016th%20century%20wood%20engraving.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q329838",
+    "date": "0300-01-01T00:00:00Z",
+    "label": "Crisis of the Third Century",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Map%20of%20Ancient%20Rome%20271%20AD-ru.svg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q33745",
+    "date": "0431-01-01T00:00:00Z",
+    "label": "Peloponnesian War",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Map%20Peloponnesian%20War%20431%20BC-en.svg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q933963",
+    "date": "0166-01-01T00:00:00Z",
+    "label": "Marcomannic Wars",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Column%20of%20Marcus%20Aurelius%20-%20detail3.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q124395762",
+    "date": "0428-01-01T00:00:00Z",
+    "label": "Frankish War",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/400%20Germania%20I%20II%20Belgica%20I%20II.png"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q2985432",
+    "date": "0314-01-01T00:00:00Z",
+    "label": "Synod of Ancyra",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/I%2025%20codici%20del%20Primo%20Concilio%20di%20Ancyra%20del%20314%20d-C.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q619950",
+    "date": "0050-01-01T00:00:00Z",
+    "label": "Council of Jerusalem",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Saint%20James%20the%20Just.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q21251731",
+    "date": "0286-01-01T00:00:00Z",
+    "label": "Saint Sebastian tended by Saint Irene",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Vicente%20L%C3%B3pez%20y%20Porta%C3%B1a%20-%20Saint%20Sebastian%20Tended%20by%20Saint%20Irene%20-%202000.47%20-%20J.%20Paul%20Getty%20Museum.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q4350094",
+    "date": "0476-01-01T00:00:00Z",
+    "label": "Deposition of Romulus Augustulus",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Young%20Folks%27%20History%20of%20Rome%20illus420.png"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q21251731",
+    "date": "0286-01-01T00:00:00Z",
+    "label": "Saint Sebastian tended by Saint Irene",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Vicente%20L%C3%B3pez%20y%20Porta%C3%B1a%20-%20Saint%20Sebastian%20Tended%20by%20Saint%20Irene%20-%202000.47%20-%20J.%20Paul%20Getty%20Museum.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q65508996",
+    "date": "0287-01-20T00:00:00Z",
+    "label": "martyrdom of Saint Sebastian",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Peter%20Paul%20Rubens%20-%20Der%20heilige%20Sebastian%20-%20Google%20Art%20Project.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q110234473",
+    "date": "0039-12-31T00:00:00Z",
+    "label": "coming of the Virgin Mary to St. James the Great in Zaragoza",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Secano-venida%20de%20la%20virgen%20del%20pilar.png"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q503605",
+    "date": "0298-01-01T00:00:00Z",
+    "label": "Battle of Satala",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Arch-of-Galerius-1.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q339321",
+    "date": "0312-10-29T00:00:00Z",
+    "label": "Battle of the Milvian Bridge",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Battle%20at%20the%20Milvian%20Bridge%2C%20G%C3%A9rard%20Audran%20after%20Charles%20Le%20Brun%2C%201666-crop.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q339321",
+    "date": "0312-10-29T00:00:00Z",
+    "label": "Battle of the Milvian Bridge",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Dream%20of%20Constantine%20Milvius%20BnF%20MS%20Gr510%20fol440.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q39154",
+    "date": "0486-01-01T00:00:00Z",
+    "label": "Battle of Soissons",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/St%20Remy%20Bishop%20of%20Rheims%20begging%20of%20Clovis%20the%20restitution%20of%20the%20Sacred%20Vase%20taken%20by%20the%20Franks%20in%20the%20Pillage%20of%20Soissons.png"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q179455",
+    "date": "0324-07-01T00:00:00Z",
+    "label": "Battle of the Hellespont",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Tapestry%20showing%20the%20Sea%20Battle%20between%20the%20Fleets%20of%20Constantine%20and%20Licinius-cropped.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q192473",
+    "date": "0378-08-10T00:00:00Z",
+    "label": "Battle of Adrianople",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Batalla%20de%20Adrian%C3%B3polis.png"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q595320",
+    "date": "0500-01-01T00:00:00Z",
+    "label": "Battle of Badon",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Britain%20500%20CE.png"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q555463",
+    "date": "0235-01-01T00:00:00Z",
+    "label": "Battle at the Harzhorn",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Harzhorn%20Ausgrabungsbereich.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q386578",
+    "date": "0069-04-12T00:00:00Z",
+    "label": "First battle of Bedriacum",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Bedricum%20I.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q389540",
+    "date": "0388-01-01T00:00:00Z",
+    "label": "Battle of the Save",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Drau%20river.PNG"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q444590",
+    "date": "0406-01-01T00:00:00Z",
+    "label": "Battle of Faesulae",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/The%20Siege%20of%20Fiesole%20by%20the%20Goths%20-%20Friedrich%20Sustris.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q264737",
+    "date": "0496-01-01T00:00:00Z",
+    "label": "Battle of Tolbiac",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Evariste-Vital%20Luminais%20-%20D%C3%A9route%20des%20Germains%20apr%C3%A8s%20la%20bataille%20de%20Tolbiac.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q264737",
+    "date": "0496-01-01T00:00:00Z",
+    "label": "Battle of Tolbiac",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Ary%20Scheffer%20-%20Bataille%20de%20Tolbiac%20496.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q264737",
+    "date": "0496-01-01T00:00:00Z",
+    "label": "Battle of Tolbiac",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Battle%20of%20Tolbiac.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q87779",
+    "date": "0009-09-01T00:00:00Z",
+    "label": "Battle of the Teutoburg Forest",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Varus01.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q139808",
+    "date": "0451-06-21T00:00:00Z",
+    "label": "Battle of the Catalaunian Plains",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/De%20Neuville%20-%20The%20Huns%20at%20the%20Battle%20of%20Chalons.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q617650",
+    "date": "0043-01-01T00:00:00Z",
+    "label": "Battle of the Medway",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Kent%20Town%20Rivers.svg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q653482",
+    "date": "0197-02-18T00:00:00Z",
+    "label": "Battle of Lugdunum",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Aureus-Clodius%20Albinus-RIC%200009b.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q630644",
+    "date": "0016-01-01T00:00:00Z",
+    "label": "Battle of the Weser River",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Germanicus.png"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q841211",
+    "date": "0454-01-01T00:00:00Z",
+    "label": "Battle of Nedao",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Carpathian-Basin.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q894999",
+    "date": "0060-01-01T00:00:00Z",
+    "label": "Battle of Watling Street",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Watling%20Street%20route.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q894999",
+    "date": "0061-01-01T00:00:00Z",
+    "label": "Battle of Watling Street",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Watling%20Street%20route.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q726485",
+    "date": "0089-06-01T00:00:00Z",
+    "label": "Battle of Ikh Bayan",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Altai%20Mountains.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q734700",
+    "date": "0451-05-27T00:00:00Z",
+    "label": "Battle of Avarayr",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Vartanantz.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q766072",
+    "date": "0456-10-06T00:00:00Z",
+    "label": "Battle of Órbigo",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Europe%20map%20450.PNG"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q766072",
+    "date": "0456-10-06T00:00:00Z",
+    "label": "Battle of Órbigo",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Teleno.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q767124",
+    "date": "0363-05-30T00:00:00Z",
+    "label": "Battle of Ctesiphon",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Julian%20II%20under%20Ctesifon.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q767605",
+    "date": "0378-05-01T00:00:00Z",
+    "label": "Battle of Argentovaria",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Alemanni%20expansion.png"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q929265",
+    "date": "0268-09-01T00:00:00Z",
+    "label": "Battle of Naissus",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/GothicInvasions%20267-269-en.svg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1476280",
+    "date": "0087-01-01T00:00:00Z",
+    "label": "Battle of Tapae",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Daakiansodat.png"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q815110",
+    "date": "0359-01-01T00:00:00Z",
+    "label": "Siege of Amida",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Taq-e%20Bostan%20-%20High-relief%20Shapur%20II%20and%20Shapur%20III.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q830059",
+    "date": "0208-01-01T00:00:00Z",
+    "label": "Battle of Red Cliffs",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Chibi.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1367199",
+    "date": "0357-08-01T00:00:00Z",
+    "label": "Battle of Strasbourg",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Battle%20of%20Julianus%20Flavius%20Claudius%20near%20Strasbourg%20%28R.%20de%20Hooghe%2C%201692%29.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1421082",
+    "date": "0251-01-01T00:00:00Z",
+    "label": "Battle of Abritus",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/GothicInvasions250-251-en.svg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1759500",
+    "date": "0298-01-01T00:00:00Z",
+    "label": "Battle of Lingones",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Argenteus-Constantius%20I-antioch%20RIC%20033a.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1784785",
+    "date": "0353-01-01T00:00:00Z",
+    "label": "Battle of Mons Seleucus",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Double%20Centenionalis%20Magnentius-XR-s4017.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1267656",
+    "date": "0268-01-01T00:00:00Z",
+    "label": "Battle of Lake Benacus",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Benacus%20creino.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1057910",
+    "date": "0200-01-01T00:00:00Z",
+    "label": "Battle of Guandu",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Guanduzhizhan%20eng.png"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1141614",
+    "date": "0221-08-01T00:00:00Z",
+    "label": "Battle of Xiaoting",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Battle%20of%20Yiling.png"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1165502",
+    "date": "0260-01-01T00:00:00Z",
+    "label": "Battle of Edessa",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Bas%20relief%20nagsh-e-rostam%20al.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1231697",
+    "date": "0363-06-01T00:00:00Z",
+    "label": "Battle of Samarra",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Death%20of%20the%20Julian%20the%20Aposthate%20in%20the%20battle%20of%20Samarra%20%28Cassell%27s%20Illustrated%20Universal%20History%2C%20vol.%203%2C%201882%29.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1264908",
+    "date": "0324-09-18T00:00:00Z",
+    "label": "Battle of Chrysopolis",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Constantine%20Musei%20Capitolini.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1094363",
+    "date": "0191-01-01T00:00:00Z",
+    "label": "Battle of Xiangyang",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Sun%20Jian%20attacks%20Liu%20Biao.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1127337",
+    "date": "0083-01-01T00:00:00Z",
+    "label": "Battle of Mons Graupius",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Agricola.Campaigns.80.84.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1127337",
+    "date": "0084-01-01T00:00:00Z",
+    "label": "Battle of Mons Graupius",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Agricola.Campaigns.80.84.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1132985",
+    "date": "0202-01-01T00:00:00Z",
+    "label": "Battle of Bowang",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Long%20Corridor-%E5%AD%94%E6%98%8E%E5%88%9D%E7%94%A8%E5%85%B5.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1547153",
+    "date": "0312-01-01T00:00:00Z",
+    "label": "Battle of Verona",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Rome-Capitole-StatueConstantin.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1583689",
+    "date": "0356-01-01T00:00:00Z",
+    "label": "Battle of Brumath",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Haut%20Koenigsbourg%2008.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1583991",
+    "date": "0244-01-01T00:00:00Z",
+    "label": "Battle of Misiche",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Gordian%20III%20-%20Palazzo%20dei%20Conservatori%20-%20Musei%20Capitolini%20-%20Rome%202016%20%283%29.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1289831",
+    "date": "0271-01-01T00:00:00Z",
+    "label": "Battle of Pavia",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Aureliancoin1.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1330310",
+    "date": "0208-10-01T00:00:00Z",
+    "label": "Battle of Changban",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Zhaoyunfightsatchangban.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1333898",
+    "date": "0383-12-01T00:00:00Z",
+    "label": "Battle of Fei River",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Battle%20of%20Fei%20River.png"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1890225",
+    "date": "0402-06-01T00:00:00Z",
+    "label": "Battle of Verona",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Colline%20di%20Verona.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1890225",
+    "date": "0403-01-01T00:00:00Z",
+    "label": "Battle of Verona",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Colline%20di%20Verona.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1901096",
+    "date": "0238-01-01T00:00:00Z",
+    "label": "Battle of Carthage",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/GordianusIIsest.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1707087",
+    "date": "0015-01-01T00:00:00Z",
+    "label": "Battle of the Bridges",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Kalkriese%20location%20map..png"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q2309606",
+    "date": "0259-01-01T00:00:00Z",
+    "label": "Battle of Mediolanum",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Mediolanum%20romana.png"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q2334735",
+    "date": "0250-01-01T00:00:00Z",
+    "label": "Battle of Philippopolis",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Philippopolis%20Location.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q2154977",
+    "date": "0377-01-01T00:00:00Z",
+    "label": "Battle of the Willows",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Scythia%20Minor%20map-pt.svg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q2166222",
+    "date": "0368-01-01T00:00:00Z",
+    "label": "Battle of Solicinium",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Neckar%20watershed%20closer.gif"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q2166297",
+    "date": "0356-01-01T00:00:00Z",
+    "label": "Battle of Durocortorum",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Reims%20dot.png"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q2237125",
+    "date": "0068-01-01T00:00:00Z",
+    "label": "Battle of Vesontio",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Besancon%20boucle%20Doubs.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q2568416",
+    "date": "0380-01-01T00:00:00Z",
+    "label": "Battle of Thessalonica",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Thessaloniki%20area%20in%20Antiquity.png"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q2255524",
+    "date": "0218-06-08T00:00:00Z",
+    "label": "Battle of Antioch",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Detailed%20Map%20of%20Roman%20Syria.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q2733426",
+    "date": "0406-01-01T00:00:00Z",
+    "label": "Battle of Mainz",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Mapa%20Imperio%20Occidental%20%28migraci%C3%B3n%20a%C3%B1o%20406%29.svg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q2741713",
+    "date": "0455-01-01T00:00:00Z",
+    "label": "Battle of Aylesford",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Anglo.Saxon.migration.5th.cen.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q2364744",
+    "date": "0312-01-01T00:00:00Z",
+    "label": "Battle of Turin",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Constantine-Maxentius.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q2408278",
+    "date": "0193-01-01T00:00:00Z",
+    "label": "Battle of Cyzicus",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Denarius-Pescennius%20Niger-RIC%200015var.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q2888361",
+    "date": "0457-01-01T00:00:00Z",
+    "label": "Battle of Crayford",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Roman%20de%20Brut%20-%20Vortigern%20Tower.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q2700950",
+    "date": "0436-01-01T00:00:00Z",
+    "label": "Battle of Worms",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/400%20Germania%20I%20II%20Belgica%20I%20II.png"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q2707263",
+    "date": "0101-09-01T00:00:00Z",
+    "label": "Third Battle of Tapae",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Traj%20col%20battle%205.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q2887977",
+    "date": "0224-04-28T00:00:00Z",
+    "label": "Battle of Hormozdgan",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Battle%20of%20Hormozdgan.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q2435881",
+    "date": "0432-01-01T00:00:00Z",
+    "label": "Battle of Ravenna",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/As%20Galla%20Placidia%20RIC%202113.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q2451436",
+    "date": "0193-01-01T00:00:00Z",
+    "label": "Battle of Nicaea",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Asia%20Minor%20188%20BCE.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q2457256",
+    "date": "0463-01-01T00:00:00Z",
+    "label": "Battle of Orleans",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/08-TEODORICO.JPG"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q2479442",
+    "date": "0285-07-01T00:00:00Z",
+    "label": "Battle of the Margus",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/CarinusAureus.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q2521439",
+    "date": "0050-01-01T00:00:00Z",
+    "label": "Battle of Caer Caradoc",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/River%20Severn%20from%20Severn%20Valley%20Railway%20train%202004-12-31.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q2530931",
+    "date": "0314-10-08T00:00:00Z",
+    "label": "Battle of Cibalae",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Bronze%20portrait%20of%20Constantinus%20I%20in%20the%20Musei%20Capitolini.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q2530973",
+    "date": "0272-01-01T00:00:00Z",
+    "label": "Battle of Emesa",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/AurelianusPalmyra272.png"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q3272217",
+    "date": "0023-01-01T00:00:00Z",
+    "label": "Battle of Kunyang",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Xin%20Dynasty%20Uprisings.png"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q3636377",
+    "date": "0070-01-01T00:00:00Z",
+    "label": "Battle of Castra Vetera",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Vetera.png"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q3636473",
+    "date": "0067-01-01T00:00:00Z",
+    "label": "Battle of Joppa",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Tel%20Aviv%20Israel%20Map.png"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q51624",
+    "date": "0033-01-01T00:00:00Z",
+    "label": "Resurrection of Jesus",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Rafael%20-%20ressureicaocristo01.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q3636631",
+    "date": "0068-01-01T00:00:00Z",
+    "label": "Capture of Tarichaea",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Golan%20heights%20rel89-orig.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q3494883",
+    "date": "0106-01-01T00:00:00Z",
+    "label": "Battle of Sarmisegetusa",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Sarmizegetusa%20Regia.JPG"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q3496783",
+    "date": "0066-01-01T00:00:00Z",
+    "label": "Battle of Beth Horon",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Beit%20Horon.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q4870386",
+    "date": "0371-01-01T00:00:00Z",
+    "label": "Battle of Bagavan",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Armenian%20regions-expansion%20of%20the%20House%20of%20Mamikonian.gif"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q4871168",
+    "date": "0437-01-01T00:00:00Z",
+    "label": "Battle of Guoloph",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Britain.5th.cen.AS.cemeteries.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q4871585",
+    "date": "0069-01-01T00:00:00Z",
+    "label": "Battle of Locus Castrorum",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/OthoDen.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q4872963",
+    "date": "0419-01-01T00:00:00Z",
+    "label": "Battle of the Nervasos Mountains",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Reino%20suevo.svg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q4872170",
+    "date": "0476-09-03T00:00:00Z",
+    "label": "Battle of Ravenna",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Young%20Folks%27%20History%20of%20Rome%20illus420.png"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q8244453",
+    "date": "0088-01-01T00:00:00Z",
+    "label": "Battle of Tapae",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Traj%20col%20battle%205.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q9172780",
+    "date": "0068-01-01T00:00:00Z",
+    "label": "Battle of Bethennabris",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/The-Decapolis-map.fr.svg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q9172435",
+    "date": "0058-01-01T00:00:00Z",
+    "label": "Battle of Mount Scopus",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/JPF%20-%20Old%20City%20From%20Mount%20Scopus.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q9172444",
+    "date": "0047-01-01T00:00:00Z",
+    "label": "Battle of the Fens",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Fens-OMC.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q9172515",
+    "date": "0391-01-01T00:00:00Z",
+    "label": "Battle of the Axios River",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Axios-Vardar%20river%20map.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q9172535",
+    "date": "0268-01-01T00:00:00Z",
+    "label": "Battle of Nestos",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Nestos%20or%20Mesta%20River%20-%20Greece-Bulgaria.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q11152051",
+    "date": "0192-06-27T00:00:00Z",
+    "label": "Battle of Chang'an",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Li%20Jue%20and%20Guo%20Si%20sack%20the%20capital%20at%20Chang%27an.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q9173065",
+    "date": "0066-01-01T00:00:00Z",
+    "label": "Battle of Jerusalem",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Jerusalem-1%20Jht.png"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q9173231",
+    "date": "0376-01-01T00:00:00Z",
+    "label": "Battle of Marcianople",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Dewnja%20Bulgaria%201994%20CIA%20map.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q16531748",
+    "date": "0476-01-01T00:00:00Z",
+    "label": "Battle of Pavia",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Santi%20gervasio%20e%20protasio%20pavia.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q19903451",
+    "date": "0250-01-01T00:00:00Z",
+    "label": "Battle of Beroe",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Stara%20Zagora%20-%20Bulgarien%20R%C3%B6misches%20Theater.JPG"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q20747530",
+    "date": "0250-01-01T00:00:00Z",
+    "label": "Battle of Nicopolis ad Istrum",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Nicopolis%20ad%20Istrum%20-%20central%20part.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q25420405",
+    "date": "0312-01-01T00:00:00Z",
+    "label": "Battle of Brescia",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Constantine-Maxentius.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q30742713",
+    "date": "0439-10-20T00:00:00Z",
+    "label": "Capture of Carthage",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Vandal%20cavalryman%2C%20c.%20AD%20500%2C%20from%20a%20mosaic%20pavement%20at%20Bordj%20Djedid%20near%20Carthage.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q63146684",
+    "date": "0069-04-12T00:00:00Z",
+    "label": "Battles of Bedriacum",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Bedricum%20I.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q108909342",
+    "date": "0352-01-01T00:00:00Z",
+    "label": "Battle of Pavia",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Double%20Centenionalis%20Magnentius-XR-s4017.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q22093571",
+    "date": "0100-01-01T00:00:00Z",
+    "label": "crucifixion of Andrew",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Gotein%20%28Gotein-Libarrenx%2C%20Pyr-Atl%2C%20Fr%29%20tableau%20La%20Crucification.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q815110",
+    "date": "0359-01-01T00:00:00Z",
+    "label": "Siege of Amida",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Taq-e%20Bostan%20-%20High-relief%20Shapur%20II%20and%20Shapur%20III.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q4024962",
+    "date": "0059-01-01T00:00:00Z",
+    "label": "Roughhouse at the Amphitheatre",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Pittura%20di%20pompei%20con%20zuffa%20tra%20pompeiani%20e%20nocerini.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q4337359",
+    "date": "0360-01-01T00:00:00Z",
+    "label": "Constantius II's siege of Bezabde",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Constantius%20II%20-%20solidus%20-%20antioch%20RIC%20viii%20025.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q3625439",
+    "date": "0253-01-01T00:00:00Z",
+    "label": "Siege of Antioch",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Antiochia%20su%20Oronte.PNG"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q21695844",
+    "date": "0368-01-01T00:00:00Z",
+    "label": "Siege of Artogerassa",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Last%20Battle%20of%20Queen%20Pharandzem.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q8068200",
+    "date": "0068-01-01T00:00:00Z",
+    "label": "Zealot Temple siege",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/TempleStepsMay2009.JPG"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q16531748",
+    "date": "0476-01-01T00:00:00Z",
+    "label": "Battle of Pavia",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Santi%20gervasio%20e%20protasio%20pavia.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q30682218",
+    "date": "0140-01-01T00:00:00Z",
+    "label": "Siege of Burnswark",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Roman.Britain.north.350.400.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q16934187",
+    "date": "0325-01-01T00:00:00Z",
+    "label": "Shapur II's Arab campaign",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Nakhal%20Fort%201.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q25230703",
+    "date": "0484-01-01T00:00:00Z",
+    "label": "Sukhra's Hephthalite campaign",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Sukhra%20defeating%20the%20Hephthalites.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q3850909",
+    "date": "0060-01-01T00:00:00Z",
+    "label": "Roman conquest of Anglesey",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/John%20Harris%20Valda%20-%20The%20Roman%20attack%20on%20Anglesey.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1231697",
+    "date": "0363-06-01T00:00:00Z",
+    "label": "Battle of Samarra",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Death%20of%20the%20Julian%20the%20Aposthate%20in%20the%20battle%20of%20Samarra%20%28Cassell%27s%20Illustrated%20Universal%20History%2C%20vol.%203%2C%201882%29.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q110234473",
+    "date": "0039-12-31T00:00:00Z",
+    "label": "coming of the Virgin Mary to St. James the Great in Zaragoza",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Secano-venida%20de%20la%20virgen%20del%20pilar.png"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1125125",
+    "date": "0001-01-01T00:00:00Z",
+    "label": "Parable of the Ten Virgins",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Pintures%20de%20Pedret-%20Absis%20sud%20de%20pedret.%20MNAC.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q4198391",
+    "date": "0180-01-01T00:00:00Z",
+    "label": "Hatepe eruption",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Lake%20taupo%20landsat.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1518676",
+    "date": "0100-01-01T00:00:00Z",
+    "label": "healing of the man born blind",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Guarigione%20del%20cieco%20nato%20di%20De%20Ferrari%20Orazio.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q51624",
+    "date": "0033-01-01T00:00:00Z",
+    "label": "Resurrection of Jesus",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Rafael%20-%20ressureicaocristo01.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q1518676",
+    "date": "0100-01-01T00:00:00Z",
+    "label": "healing of the man born blind",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Guarigione%20del%20cieco%20nato%20di%20De%20Ferrari%20Orazio.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q7317265",
+    "date": "0000-01-01T00:00:00Z",
+    "label": "return from Egypt",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Brooklyn%20Museum%20-%20The%20Return%20from%20Egypt%20%28Retour%20d%27%C3%89gypte%29%20-%20James%20Tissot%20-%20overall.jpg"
+  },
+  {
+    "event": "http://www.wikidata.org/entity/Q65560542",
+    "date": "0033-05-22T00:00:00Z",
+    "label": "Pentecost",
+    "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Maino%20Pentecost%C3%A9s%2C%201620-1625.%20Museo%20del%20Prado.jpg"
+  }
+]

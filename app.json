@@ -8,14 +8,41 @@
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "assetBundlePatterns": [
+      "**/*",
+      "assets/dataset/*",
+      "assets/audio/*",
+      "assets/fonts/*"
+    ],
+    "fonts": [
+      {
+        "asset": "./assets/fonts/IMFellDWPica-Regular.ttf",
+        "family": "IMFellDWPica-Regular"
+      }
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.fungame",
+      "infoPlist": {
+        "UIBackgroundModes": ["audio"],
+        "AVAudioSession": {
+          "category": "ambient",
+          "mode": "default"
+        }
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "android.permission.MODIFY_AUDIO_SETTINGS",
+        "android.permission.INTERNET",
+        "android.permission.ACCESS_NETWORK_STATE"
+      ],
+      "package": "com.anonymous.fungame",
+      "softwareKeyboardLayoutMode": "pan"
     },
     "web": {
       "bundler": "metro",
@@ -32,10 +59,28 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
+      ],
+      "expo-asset",
+      [
+        "expo-av",
+        {
+          "microphonePermission": false,
+          "audioEnabled": true,
+          "androidVideoMaxSize": 0,
+          "androidAudioMaxSize": 100000
+        }
       ]
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "your-project-id"
+      }
     }
   }
 }
