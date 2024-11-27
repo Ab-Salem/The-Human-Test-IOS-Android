@@ -1,13 +1,34 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { View, StyleSheet, Pressable, Text, Dimensions } from 'react-native';
+import { View, StyleSheet, Text, Dimensions, Animated as RNAnimated, ViewStyle } from 'react-native';
 import { useRouter } from 'expo-router';
 import LottieView from 'lottie-react-native';
 import { Animated, Easing } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useFonts } from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
 
 const { width, height } = Dimensions.get('window');
 
-export default function HomeScreen() {
+interface DialogueBubbleProps {
+  text: string;
+  isAlien: boolean;
+  style?: ViewStyle;
+}
+
+const DialogueBubble: React.FC<DialogueBubbleProps> = ({ text, isAlien, style }) => (
+  <View style={[
+    styles.dialogueBubble,
+    isAlien ? styles.alienBubble : styles.hikerBubble,
+    style
+  ]}>
+    <Text style={[
+      styles.dialogueText,
+      isAlien ? styles.alienText : styles.hikerText
+    ]}>{text}</Text>
+  </View>
+);
+
+export default function IntroScreen() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const spaceRef = useRef<LottieView>(null);
@@ -15,65 +36,133 @@ export default function HomeScreen() {
   const alienRef = useRef<LottieView>(null);
   const hikerRef = useRef<LottieView>(null);
 
+  const [fontsLoaded] = useFonts({
+    'Orbitron': require('../assets/fonts/Orbitron-Regular.ttf'),
+    'SpaceMono': require('../assets/fonts/SpaceMono-Regular.ttf'),
+  });
+
   const [currentBackground, setCurrentBackground] = useState('space');
-  const [showButton, setShowButton] = useState(false);
+  const [currentDialogue, setCurrentDialogue] = useState('');
+  const [dialogueType, setDialogueType] = useState<'alien' | 'hiker' | null>(null);
   
   const alienPosition = useRef(new Animated.ValueXY({ x: width, y: -100 })).current;
+  const bubbleOpacity = useRef(new RNAnimated.Value(0)).current;
+
+  useEffect(() => {
+    const prepare = async () => {
+      if (!fontsLoaded) {
+        await SplashScreen.preventAutoHideAsync();
+      } else {
+        await SplashScreen.hideAsync();
+      }
+    };
+    prepare();
+  }, [fontsLoaded]);
+
+  const showDialogue = (text: string, type: 'alien' | 'hiker') => {
+    setCurrentDialogue(text);
+    setDialogueType(type);
+    RNAnimated.timing(bubbleOpacity, {
+      toValue: 1,
+      duration: 300,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  const hideDialogue = () => {
+    RNAnimated.timing(bubbleOpacity, {
+      toValue: 0,
+      duration: 300,
+      useNativeDriver: true,
+    }).start(() => {
+      setCurrentDialogue('');
+      setDialogueType(null);
+    });
+  };
 
   useEffect(() => {
     const startAnimationSequence = async () => {
-      // Play space background
       spaceRef.current?.play();
-      
-      // Longer initial delay for space scene
       await new Promise(resolve => setTimeout(resolve, 2000));
       
-      // Animate alien flying to center in space scene
       Animated.timing(alienPosition, {
-        toValue: { x: width * 0.3, y: height * 0.4 }, // Center of screen
+        toValue: { x: width * 0.3, y: height * 0.4 },
         duration: 3000,
         easing: Easing.inOut(Easing.ease),
         useNativeDriver: true
       }).start();
       
       alienRef.current?.play();
+      await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // Wait before changing background
       await new Promise(resolve => setTimeout(resolve, 4000));
-      
-      // Change background to forest
       setCurrentBackground('forest');
       forestRef.current?.play();
-      
-      // Show hiker
       hikerRef.current?.play();
       
-      // Reset and animate alien again
       alienPosition.setValue({ x: width, y: -100 });
-      
-      // Wait before starting second alien animation
       await new Promise(resolve => setTimeout(resolve, 500));
       
-      // Animate alien flying to top right in forest scene
       Animated.timing(alienPosition, {
-        toValue: { x: width * 0.4, y: height * 0.15 }, // Top right corner
+        toValue: { x: width * 0.4, y: height * 0.15 },
         duration: 3000,
         easing: Easing.inOut(Easing.ease),
         useNativeDriver: true
       }).start();
+
+      await new Promise(resolve => setTimeout(resolve, 3000));
+
+      showDialogue("Are you a human?? I need a human ASAP!! The earth is about to explode!", "alien");
+      await new Promise(resolve => setTimeout(resolve, 3000));
+
+      hideDialogue();
+      await new Promise(resolve => setTimeout(resolve, 500));
+      showDialogue("yeah", "hiker");
+      await new Promise(resolve => setTimeout(resolve, 2000));
+
+      hideDialogue();
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      showDialogue("Are you sure??", "alien");
+      await new Promise(resolve => setTimeout(resolve, 2000));
       
-      // Longer delay before showing play button
-      await new Promise(resolve => setTimeout(resolve, 4000));
+      hideDialogue();
+      await new Promise(resolve => setTimeout(resolve, 500));
+      showDialogue("yeah", "hiker");
+      await new Promise(resolve => setTimeout(resolve, 2000));
       
-      setShowButton(true);
+      hideDialogue();
+      await new Promise(resolve => setTimeout(resolve, 500));
+      showDialogue("hmm... i dont know...", "alien");
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      
+      hideDialogue();
+      await new Promise(resolve => setTimeout(resolve, 500));
+      showDialogue("Can you prove it to me?? I need to be fully sure.", "alien");
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      
+      hideDialogue();
+      await new Promise(resolve => setTimeout(resolve, 500));
+      showDialogue("How", "hiker");
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      
+      hideDialogue();
+      await new Promise(resolve => setTimeout(resolve, 500));
+      showDialogue("Take this test to prove you are human.", "alien");
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      
+      hideDialogue();
+      router.push('/home');
     };
 
     startAnimationSequence();
   }, []);
 
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <View style={styles.container}>
-      {/* Background Animations */}
       {currentBackground === 'space' && (
         <LottieView
           ref={spaceRef}
@@ -91,7 +180,6 @@ export default function HomeScreen() {
         />
       )}
       
-      {/* Character Animations */}
       <Animated.View
         style={[
           styles.alienContainer,
@@ -117,19 +205,20 @@ export default function HomeScreen() {
             ref={hikerRef}
             source={require('../assets/animation/hiker.json')}
             style={styles.hikerAnimation}
-            loop
+            loop={true}
+            autoPlay={true}
           />
         </View>
       )}
       
-      {/* Play Button */}
-      {showButton && (
-        <Pressable
-          style={styles.playButton}
-          onPress={() => router.push('/game')}
-        >
-          <Text style={styles.playButtonText}>Play</Text>
-        </Pressable>
+      {currentDialogue && (
+        <RNAnimated.View style={[styles.dialogueContainer, { opacity: bubbleOpacity }]}>
+          <DialogueBubble
+            text={currentDialogue}
+            isAlien={dialogueType === 'alien'}
+            style={dialogueType === 'hiker' ? { alignSelf: 'flex-start', marginLeft: 20 } : { alignSelf: 'flex-end', marginRight: 20 }}
+          />
+        </RNAnimated.View>
       )}
     </View>
   );
@@ -159,26 +248,49 @@ const styles = StyleSheet.create({
     width: 500,
     height: height,
     left: -100,
-    top: height * 0.4, // Position from top to show upper body
+    top: height * 0.5,
   },
   hikerAnimation: {
     width: '80%',
     height: '80%',
     position: 'absolute',
   },
-  playButton: {
+  dialogueContainer: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    justifyContent: 'flex-end',
+    paddingHorizontal: 5,
+    paddingBottom: height * 0.5,
+  },
+  dialogueBubble: {
+    maxWidth: '70%',
+    padding: 15,
+    borderRadius: 20,
+    marginVertical: 5,
+  },
+  alienBubble: {
+    backgroundColor: 'rgba(100, 200, 255, 0.9)',
+    borderTopRightRadius: 5,
+    marginTop: height * 0.4,
+    alignSelf: 'flex-end',
+    marginRight: 20,
+  },
+  hikerBubble: {
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    borderTopLeftRadius: 5,
     position: 'absolute',
     bottom: height * 0.25,
-    right: 40,
-    alignSelf: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
-    paddingHorizontal: 40,
-    paddingVertical: 15,
-    borderRadius: 25,
+    left: width * 0.50,
   },
-  playButtonText: {
-    fontSize: 24,
-    fontWeight: 'bold',
+  dialogueText: {
+    fontSize: 16,
     color: '#000',
   },
+  alienText: {
+    fontFamily: 'Orbitron',
+  },
+  hikerText: {
+    fontFamily: 'SpaceMono',
+  }
 });

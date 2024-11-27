@@ -62,6 +62,12 @@ export default function GameScreen() {
         paddingTop: Platform.OS === 'ios' ? insets.top : 0,
         paddingBottom: Platform.OS === 'ios' ? insets.bottom : 0
       }]}>
+        {message && (
+          <Animated.View style={[styles.messageContainer, { opacity: fadeAnim }]}>
+            <Text style={styles.message}>{message}</Text>
+          </Animated.View>
+        )}
+
         {/* Top Event */}
         <View style={styles.eventSection}>
           {currentEvent && (
@@ -114,12 +120,6 @@ export default function GameScreen() {
                   <Text style={styles.buttonText}>AFTER</Text>
                 </Pressable>
               </View>
-
-              {message && (
-                <Animated.View style={[styles.messageContainer, { opacity: fadeAnim }]}>
-                  <Text style={styles.message}>{message}</Text>
-                </Animated.View>
-              )}
             </View>
           </ImageBackground>
         </View>
@@ -154,10 +154,10 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   eventSection: {
-    flex: 0.47, // Increased slightly to accommodate thinner middle section
+    flex: 0.47,
   },
   controlSection: {
-    flex: 0.10, // Reduced from 0.1 to make it thinner
+    flex: 0.10,
   },
   mapBackground: {
     flex: 1,
@@ -166,10 +166,10 @@ const styles = StyleSheet.create({
   mapOverlay: {
     flex: 1,
     backgroundColor: 'rgba(0,0,0,0.8)',
-    borderTopWidth: 2, // Reduced from 3
-    borderBottomWidth: 2, // Reduced from 3
-    borderColor: '#fff',
-    justifyContent: 'center', // Centers content vertically
+    borderTopWidth: 2,
+    borderBottomWidth: 2,
+    borderColor: '#11b5d9',
+    justifyContent: 'center',
   },
   imageContainer: {
     flex: 1,
@@ -185,42 +185,42 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     backgroundColor: 'rgba(0,0,0,0.9)',
-    paddingVertical: 10, // Reduced from 20
+    paddingVertical: 10,
     paddingHorizontal: 15,
-    borderTopWidth: 1, // Reduced from 2
-    borderColor: '#fff',
+    borderTopWidth: 1,
+    borderColor: '#11b5d9',
   },
   buttonRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center', // Centers buttons horizontally
-    paddingHorizontal: 10, // Reduced from 20
-    gap: 10, // Adds consistent spacing between elements
+    justifyContent: 'center',
+    paddingHorizontal: 10,
+    gap: 10,
   },
   scoreContainer: {
-    backgroundColor: '#41bb79',
-    width: 45, // Reduced from 60
-    height: 45, // Reduced from 60
+    backgroundColor: '#2ca9e3',
+    width: 45,
+    height: 45,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 23,
     borderWidth: 2,
-    borderColor: '#fff',
+    borderColor: '#057f99',
     marginHorizontal: 10,
   },
   button: {
-    width: 110, // Fixed width instead of minWidth
-    paddingHorizontal: 15, // Reduced from 20
-    paddingVertical: 8, // Reduced from 10
+    width: 110,
+    paddingHorizontal: 15,
+    paddingVertical: 8,
     borderRadius: 8,
     borderWidth: 2,
-    borderColor: '#fff',
+    borderColor: '#057f99',
   },
   beforeButton: {
-    backgroundColor: '#41bb79',
+    backgroundColor: '#2ca9e3',
   },
   afterButton: {
-    backgroundColor: '#41bb79',
+    backgroundColor: '#2ca9e3',
   },
   buttonPressed: {
     opacity: 0.8,
@@ -228,8 +228,8 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#fff',
-    fontSize: 16, // Reduced from 20
-    fontFamily: 'IMFellDWPica-Regular',
+    fontSize: 16,
+    fontFamily: 'Orbitron',
     textAlign: 'center',
     textShadowColor: 'rgba(0,0,0,0.5)',
     textShadowOffset: { width: 1, height: 1 },
@@ -237,23 +237,23 @@ const styles = StyleSheet.create({
   },
   score: {
     color: '#fff',
-    fontSize: 24, // Reduced from 28
-    fontFamily: 'IMFellDWPica-Regular',
+    fontSize: 24,
+    fontFamily: 'Orbitron',
     fontWeight: 'bold',
   },
   eventText: {
     color: '#fff',
-    fontSize: 20, // Reduced from 24
-    fontFamily: 'IMFellDWPica-Regular',
+    fontSize: 20,
+    fontFamily: 'Orbitron',
     textShadowColor: 'rgba(0,0,0,0.75)',
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 2,
   },
   dateText: {
     color: '#fff',
-    fontSize: 16, // Reduced from 20
-    fontFamily: 'IMFellDWPica-Regular',
-    marginTop: 3, // Reduced from 5
+    fontSize: 16,
+    fontFamily: 'Orbitron',
+    marginTop: 3,
     textShadowColor: 'rgba(0,0,0,0.75)',
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 2,
@@ -261,20 +261,20 @@ const styles = StyleSheet.create({
   messageContainer: {
     position: 'absolute',
     alignSelf: 'center',
-    bottom: -20,
+    top: 50,
     zIndex: 10,
   },
   message: {
     color: '#fff',
-    fontSize: 14, // Reduced from 16
-    fontFamily: 'IMFellDWPica-Regular',
+    fontSize: 14,
+    fontFamily: 'Orbitron',
     textAlign: 'center',
-    backgroundColor: 'rgba(0,0,0,0.9)',
-    paddingVertical: 6, // Reduced from 8
-    paddingHorizontal: 12, // Reduced from 16
+    backgroundColor: '#11d41f',
+    paddingVertical: 6,
+    paddingHorizontal: 12,
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: '#fff',
+    borderColor: '#11b5d9',
     overflow: 'hidden',
     textShadowColor: 'rgba(0,0,0,0.75)',
     textShadowOffset: { width: 1, height: 1 },

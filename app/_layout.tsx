@@ -42,6 +42,7 @@ export default function RootLayout() {
           <Stack.Screen name="game" />
           <Stack.Screen name="gameover" />
           <Stack.Screen name="settings" />
+          <Stack.Screen name="home" />
         </Stack>
         <StatusBar style="light" translucent />
       </ThemeProvider>

@@ -304,7 +304,7 @@ const useGameLogic = () => {
         await playSound(false).catch(console.error);
       }
 
-      setMessage(`Game Over! ${nextEvent.label} happened in ${formatEventDate(nextEvent.date)}`);
+      //setMessage(`Game Over! ${nextEvent.label} happened in ${formatEventDate(nextEvent.date)}`);
       router.push({
         pathname: '/gameover',
         params: { finalScore: score }
