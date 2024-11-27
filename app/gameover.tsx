@@ -4,8 +4,11 @@ import { useRouter } from 'expo-router';
 import LottieView from 'lottie-react-native';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
+import { Audio } from 'expo-av';
 
 const { width, height } = Dimensions.get('window');
+
+type SoundAsset = number;
 
 export default function GameOverScreen() {
   const router = useRouter();
@@ -16,12 +19,37 @@ export default function GameOverScreen() {
   const [showContent, setShowContent] = useState(false);
   const [showRocket, setShowRocket] = useState(true);
   
+  // Fix: Make refs mutable
+  const fallingSoundRef = useRef<Audio.Sound>();
+  const explosionSoundRef = useRef<Audio.Sound>();
+  
   const translateX = useRef(new Animated.Value(0)).current;
   const translateY = useRef(new Animated.Value(0)).current;
 
   const [fontsLoaded] = useFonts({
     'IMFellDWPica': require('../assets/fonts/IMFellDWPica-Regular.ttf'),
   });
+
+  const fallingSoundAsset = require('../assets/audio/bomb_falling.wav');
+  const explosionSoundAsset = require('../assets/audio/explosion.wav');
+
+  const playSound = async (
+    soundAsset: SoundAsset, 
+    soundRef: React.MutableRefObject<Audio.Sound | undefined>,
+    volume: number = 1.0 // Default to full volume if not specified
+  ) => {
+    try {
+      const { sound } = await Audio.Sound.createAsync(
+        soundAsset,
+        { volume: volume }  // Add volume control
+      );
+      soundRef.current = sound;
+      await sound.playAsync();
+    } catch (error) {
+      console.error('Error playing sound:', error);
+    }
+  };
+  
 
   useEffect(() => {
     const prepare = async () => {
@@ -35,6 +63,18 @@ export default function GameOverScreen() {
   }, [fontsLoaded]);
 
   useEffect(() => {
+    // Configure audio
+    const setupAudio = async () => {
+      await Audio.setAudioModeAsync({
+        playsInSilentModeIOS: true,
+        staysActiveInBackground: true,
+      });
+    };
+    setupAudio();
+
+    // Play falling sound immediately
+    playSound(fallingSoundAsset, fallingSoundRef, 0.02); // Adjust this value between 0.0 and 1.0
+
     // Start rocket movement animation
     Animated.parallel([
       Animated.timing(translateX, {
@@ -52,16 +92,29 @@ export default function GameOverScreen() {
     const startSequence = async () => {
       // Wait longer for rocket animation
       await new Promise(resolve => setTimeout(resolve, 2000));
-      // Hide rocket and trigger explosion
+      
+      // Play explosion sound and start animation
       explosionRef.current?.play();
       await new Promise(resolve => setTimeout(resolve, 500));
-      setShowRocket(false);
-      // Wait for explosion animation
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      playSound(explosionSoundAsset, explosionSoundRef, 0.3);
+      await new Promise(resolve => setTimeout(resolve, 1000));
       setShowContent(true);
     };
 
     startSequence();
+
+    // Cleanup function
+    return () => {
+      const cleanup = async () => {
+        if (fallingSoundRef.current) {
+          await fallingSoundRef.current.unloadAsync();
+        }
+        if (explosionSoundRef.current) {
+          await explosionSoundRef.current.unloadAsync();
+        }
+      };
+      cleanup();
+    };
   }, []);
 
   if (!fontsLoaded) {
@@ -102,7 +155,6 @@ export default function GameOverScreen() {
             ref={rocketRef}
             source={require('../assets/animation/rocket.json')}
             style={styles.rocketAnimation}
-            //autoPlay
             loop={false}
             speed={1}
           />

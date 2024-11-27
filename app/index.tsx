@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { View, StyleSheet, Text, Dimensions, Animated as RNAnimated, ViewStyle } from 'react-native';
+import { View, StyleSheet, Text, Dimensions, Animated as RNAnimated, ViewStyle, Pressable } from 'react-native';
 import { useRouter } from 'expo-router';
 import LottieView from 'lottie-react-native';
 import { Animated, Easing } from 'react-native';
@@ -35,6 +35,7 @@ export default function IntroScreen() {
   const forestRef = useRef<LottieView>(null);
   const alienRef = useRef<LottieView>(null);
   const hikerRef = useRef<LottieView>(null);
+  const animationSequenceActive = useRef(true);
 
   const [fontsLoaded] = useFonts({
     'Orbitron': require('../assets/fonts/Orbitron-Regular.ttf'),
@@ -59,6 +60,20 @@ export default function IntroScreen() {
     prepare();
   }, [fontsLoaded]);
 
+  const handleSkip = () => {
+    // Cancel the animation sequence
+    animationSequenceActive.current = false;
+    
+    // Stop all animations
+    spaceRef.current?.reset();
+    forestRef.current?.reset();
+    alienRef.current?.reset();
+    hikerRef.current?.reset();
+    
+    // Navigate to home
+    router.push('/home');
+  };
+
   const showDialogue = (text: string, type: 'alien' | 'hiker') => {
     setCurrentDialogue(text);
     setDialogueType(type);
@@ -82,79 +97,116 @@ export default function IntroScreen() {
 
   useEffect(() => {
     const startAnimationSequence = async () => {
-      spaceRef.current?.play();
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      Animated.timing(alienPosition, {
-        toValue: { x: width * 0.3, y: height * 0.4 },
-        duration: 3000,
-        easing: Easing.inOut(Easing.ease),
-        useNativeDriver: true
-      }).start();
-      
-      alienRef.current?.play();
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      await new Promise(resolve => setTimeout(resolve, 4000));
-      setCurrentBackground('forest');
-      forestRef.current?.play();
-      hikerRef.current?.play();
-      
-      alienPosition.setValue({ x: width, y: -100 });
-      await new Promise(resolve => setTimeout(resolve, 500));
-      
-      Animated.timing(alienPosition, {
-        toValue: { x: width * 0.4, y: height * 0.15 },
-        duration: 3000,
-        easing: Easing.inOut(Easing.ease),
-        useNativeDriver: true
-      }).start();
+      try {
+        spaceRef.current?.play();
+        if (!animationSequenceActive.current) return;
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        if (!animationSequenceActive.current) return;
+        
+        Animated.timing(alienPosition, {
+          toValue: { x: width * 0.3, y: height * 0.4 },
+          duration: 3000,
+          easing: Easing.inOut(Easing.ease),
+          useNativeDriver: true
+        }).start();
+        
+        alienRef.current?.play();
+        if (!animationSequenceActive.current) return;
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        if (!animationSequenceActive.current) return;
+        
+        await new Promise(resolve => setTimeout(resolve, 4000));
+        if (!animationSequenceActive.current) return;
+        setCurrentBackground('forest');
+        forestRef.current?.play();
+        hikerRef.current?.play();
+        
+        alienPosition.setValue({ x: width, y: -100 });
+        if (!animationSequenceActive.current) return;
+        await new Promise(resolve => setTimeout(resolve, 500));
+        if (!animationSequenceActive.current) return;
+        
+        Animated.timing(alienPosition, {
+          toValue: { x: width * 0.4, y: height * 0.15 },
+          duration: 3000,
+          easing: Easing.inOut(Easing.ease),
+          useNativeDriver: true
+        }).start();
 
-      await new Promise(resolve => setTimeout(resolve, 3000));
+        if (!animationSequenceActive.current) return;
+        await new Promise(resolve => setTimeout(resolve, 3000));
 
-      showDialogue("Are you a human?? I need a human ASAP!! The earth is about to explode!", "alien");
-      await new Promise(resolve => setTimeout(resolve, 3000));
+        if (!animationSequenceActive.current) return;
+        showDialogue("Are you a human?? I need a human ASAP!! The earth is about to explode!", "alien");
+        await new Promise(resolve => setTimeout(resolve, 3000));
+        if (!animationSequenceActive.current) return;
 
-      hideDialogue();
-      await new Promise(resolve => setTimeout(resolve, 500));
-      showDialogue("yeah", "hiker");
-      await new Promise(resolve => setTimeout(resolve, 2000));
+        hideDialogue();
+        if (!animationSequenceActive.current) return;
+        await new Promise(resolve => setTimeout(resolve, 500));
+        showDialogue("yeah", "hiker");
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        if (!animationSequenceActive.current) return;
 
-      hideDialogue();
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      showDialogue("Are you sure??", "alien");
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      hideDialogue();
-      await new Promise(resolve => setTimeout(resolve, 500));
-      showDialogue("yeah", "hiker");
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      hideDialogue();
-      await new Promise(resolve => setTimeout(resolve, 500));
-      showDialogue("hmm... i dont know...", "alien");
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      hideDialogue();
-      await new Promise(resolve => setTimeout(resolve, 500));
-      showDialogue("Can you prove it to me?? I need to be fully sure.", "alien");
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      hideDialogue();
-      await new Promise(resolve => setTimeout(resolve, 500));
-      showDialogue("How", "hiker");
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      hideDialogue();
-      await new Promise(resolve => setTimeout(resolve, 500));
-      showDialogue("Take this test to prove you are human.", "alien");
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      hideDialogue();
-      router.push('/home');
+        hideDialogue();
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        if (!animationSequenceActive.current) return;
+        showDialogue("Are you sure??", "alien");
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        if (!animationSequenceActive.current) return;
+        
+        hideDialogue();
+        await new Promise(resolve => setTimeout(resolve, 500));
+        if (!animationSequenceActive.current) return;
+        showDialogue("yeah", "hiker");
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        if (!animationSequenceActive.current) return;
+        
+        hideDialogue();
+        await new Promise(resolve => setTimeout(resolve, 500));
+        if (!animationSequenceActive.current) return;
+        showDialogue("hmm... i dont know...", "alien");
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        if (!animationSequenceActive.current) return;
+        
+        hideDialogue();
+        await new Promise(resolve => setTimeout(resolve, 500));
+        if (!animationSequenceActive.current) return;
+        showDialogue("Can you prove it to me?? I need to be fully sure.", "alien");
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        if (!animationSequenceActive.current) return;
+        
+        hideDialogue();
+        await new Promise(resolve => setTimeout(resolve, 500));
+        if (!animationSequenceActive.current) return;
+        showDialogue("How", "hiker");
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        if (!animationSequenceActive.current) return;
+        
+        hideDialogue();
+        await new Promise(resolve => setTimeout(resolve, 500));
+        if (!animationSequenceActive.current) return;
+        showDialogue("Take this test to prove you are human.", "alien");
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        if (!animationSequenceActive.current) return;
+        
+        hideDialogue();
+        if (animationSequenceActive.current) {
+          router.push('/home');
+        }
+      } catch (error) {
+        console.error('Animation sequence error:', error);
+        if (animationSequenceActive.current) {
+          router.push('/home');
+        }
+      }
     };
 
     startAnimationSequence();
+
+    return () => {
+      animationSequenceActive.current = false;
+    };
   }, []);
 
   if (!fontsLoaded) {
@@ -163,6 +215,16 @@ export default function IntroScreen() {
 
   return (
     <View style={styles.container}>
+      <Pressable
+        style={[
+          styles.skipButton,
+          { top: insets.top + 40 }
+        ]}
+        onPress={handleSkip}
+      >
+        <Text style={styles.skipText}>Skip</Text>
+      </Pressable>
+
       {currentBackground === 'space' && (
         <LottieView
           ref={spaceRef}
@@ -292,5 +354,27 @@ const styles = StyleSheet.create({
   },
   hikerText: {
     fontFamily: 'SpaceMono',
-  }
+  },
+  skipButton: {
+    position: 'absolute',
+    left: 20,
+    zIndex: 999,
+    backgroundColor: '#FF6B00',
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 20,
+    elevation: 5,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+  },
+  skipText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
 });

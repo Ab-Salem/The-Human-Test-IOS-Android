@@ -14,16 +14,21 @@ const DATASETS = [
   'dataset5'
 ];
 
+const VICTORY_SCORE = 5;
+const INITIAL_LIVES = 2;
+
 const useGameLogic = () => {
   const [currentEvent, setCurrentEvent] = useState<HistoricalEvent | null>(null);
   const [nextEvent, setNextEvent] = useState<HistoricalEvent | null>(null);
   const [message, setMessage] = useState<string>('');
   const [score, setScore] = useState<number>(0);
+  const [lives, setLives] = useState<number>(INITIAL_LIVES);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [currentImageLoading, setCurrentImageLoading] = useState(false);
   const [correctSound, setCorrectSound] = useState<Audio.Sound | null>(null);
   const [wrongSound, setWrongSound] = useState<Audio.Sound | null>(null);
+  const [backgroundMusic, setBackgroundMusic] = useState<Audio.Sound | null>(null);
   const [isAudioReady, setIsAudioReady] = useState(false);
   const [correctSoundDuration, setCorrectSoundDuration] = useState<number | null>(null);
   const [wrongSoundDuration, setWrongSoundDuration] = useState<number | null>(null);
@@ -38,16 +43,17 @@ const useGameLogic = () => {
       try {
         await Audio.setAudioModeAsync({
           allowsRecordingIOS: false,
-          staysActiveInBackground: false,
+          staysActiveInBackground: true, // Changed to true to allow background music
           playsInSilentModeIOS: true,
-          shouldDuckAndroid: false,
+          shouldDuckAndroid: true, // Changed to true to lower music volume during sound effects
           playThroughEarpieceAndroid: false,
         });
 
         const correctSoundAsset = require('../assets/audio/correct.wav');
-        const wrongSoundAsset = require('../assets/audio/wrong.wav');
+        const wrongSoundAsset = require('../assets/audio/wrong.mp3');
+        const backgroundMusicAsset = require('../assets/audio/background_music.wav');
 
-        const [correctResult, wrongResult] = await Promise.all([
+        const [correctResult, wrongResult, musicResult] = await Promise.all([
           Audio.Sound.createAsync(
             correctSoundAsset,
             { 
@@ -61,6 +67,15 @@ const useGameLogic = () => {
             { 
               shouldPlay: false,
               volume: 1.0,
+              androidImplementation: Platform.OS === 'android' ? 'OpenSLES' : undefined,
+            }
+          ),
+          Audio.Sound.createAsync(
+            backgroundMusicAsset,
+            {
+              shouldPlay: true,
+              volume: 0.3, // Lower volume for background music
+              isLooping: true,
               androidImplementation: Platform.OS === 'android' ? 'OpenSLES' : undefined,
             }
           )
@@ -80,6 +95,7 @@ const useGameLogic = () => {
         if (isMounted) {
           setCorrectSound(correctResult.sound);
           setWrongSound(wrongResult.sound);
+          setBackgroundMusic(musicResult.sound);
           setIsAudioReady(true);
           console.log('Audio system initialized successfully');
         }
@@ -102,14 +118,30 @@ const useGameLogic = () => {
       if (wrongSound) {
         wrongSound.unloadAsync().catch(console.error);
       }
+      if (backgroundMusic) {
+        backgroundMusic.unloadAsync().catch(console.error);
+      }
     };
   }, []);
+
+  // Handle game over and cleanup
+  const handleGameOver = async () => {
+    if (backgroundMusic) {
+      try {
+        await backgroundMusic.stopAsync();
+        await new Promise(resolve => setTimeout(resolve, 100));
+      } catch (error) {
+        console.error('Error stopping background music:', error);
+      }
+    }
+  };
+
 
   // Play sound with platform-specific handling
   const playSound = async (isCorrect: boolean) => {
     const sound = isCorrect ? correctSound : wrongSound;
     const soundDuration = isCorrect ? correctSoundDuration : wrongSoundDuration;
-    const soundAsset = isCorrect ? require('../assets/audio/correct.wav') : require('../assets/audio/wrong.wav');
+    const soundAsset = isCorrect ? require('../assets/audio/correct.wav') : require('../assets/audio/wrong.mp3');
 
     if (!sound || !isAudioReady) {
       console.warn('Sound not ready');
@@ -117,6 +149,11 @@ const useGameLogic = () => {
     }
 
     try {
+      // Lower background music volume during sound effect
+      if (backgroundMusic) {
+        await backgroundMusic.setVolumeAsync(0.1);
+      }
+
       const status = await sound.getStatusAsync();
 
       if (status.isLoaded) {
@@ -127,7 +164,6 @@ const useGameLogic = () => {
         await sound.setPositionAsync(0);
         await sound.setVolumeAsync(Platform.OS === 'ios' ? 1.0 : 0.8);
         
-        // Update duration if it's available
         if (status.durationMillis) {
           if (isCorrect) {
             setCorrectSoundDuration(status.durationMillis);
@@ -136,29 +172,31 @@ const useGameLogic = () => {
           }
         }
         
-        // Play the sound and handle completion
         await sound.playAsync();
 
-        // On Android, handle completion
+        // Restore background music volume after sound effect
+        setTimeout(async () => {
+          if (backgroundMusic) {
+            await backgroundMusic.setVolumeAsync(0.3);
+          }
+        }, soundDuration || 1000);
+
         if (Platform.OS === 'android') {
           sound.setOnPlaybackStatusUpdate(async (playbackStatus: AVPlaybackStatus) => {
             if (playbackStatus.isLoaded) {
               const status = playbackStatus as AVPlaybackStatusSuccess;
               
-              // Check if we've reached the end of the sound
               const duration = status.durationMillis ?? soundDuration;
-              if (duration && status.positionMillis >= duration - 50) { // Add small buffer
+              if (duration && status.positionMillis >= duration - 50) {
                 await sound.stopAsync();
                 await sound.unloadAsync();
                 
-                // Reload the sound for next use
                 try {
                   const { sound: newSound } = await Audio.Sound.createAsync(
                     soundAsset,
                     { shouldPlay: false }
                   );
                   
-                  // Get new sound duration
                   const newStatus = await newSound.getStatusAsync();
                   if (newStatus.isLoaded && newStatus.durationMillis) {
                     if (isCorrect) {
@@ -183,7 +221,6 @@ const useGameLogic = () => {
     } catch (error) {
       console.error('Error playing sound:', error);
       
-      // Attempt to recover from error
       try {
         if (sound) {
           await sound.unloadAsync();
@@ -192,7 +229,6 @@ const useGameLogic = () => {
             { shouldPlay: false }
           );
           
-          // Get new sound duration after recovery
           const newStatus = await newSound.getStatusAsync();
           if (newStatus.isLoaded && newStatus.durationMillis) {
             if (isCorrect) {
@@ -287,39 +323,70 @@ const useGameLogic = () => {
       (!isBefore && nextEvent.date > currentEvent.date);
 
     if (isCorrect) {
-      // Play correct sound first, then update UI
       if (isAudioReady) {
         await playSound(true).catch(console.error);
       }
       
-      setScore(prevScore => prevScore + 1);
+      const newScore = score + 1;
+      setScore(newScore);
       setMessage(`Correct! ${nextEvent.label} happened in ${formatEventDate(nextEvent.date)}`);
       setCurrentEvent(nextEvent);
       setCurrentImageLoading(true);
       await loadNextEvent();
-      return { isCorrect: true };
-    } else {
-      // Play wrong sound before game over
-      if (isAudioReady) {
-        await playSound(false).catch(console.error);
+
+      // Check for victory condition
+      if (newScore >= VICTORY_SCORE) {
+        await handleGameOver();
+        router.push({
+          pathname: '/victory',
+          params: { finalScore: newScore }
+        });
       }
 
-      //setMessage(`Game Over! ${nextEvent.label} happened in ${formatEventDate(nextEvent.date)}`);
-      router.push({
-        pathname: '/gameover',
-        params: { finalScore: score }
-      });
+      return { isCorrect: true };
+    } else {
+      const newLives = lives - 1;
+      setLives(newLives);
+      
+      if (newLives <= 0) {
+        // Game over when no lives left
+        await handleGameOver();
+        
+        if (isAudioReady) {
+          await playSound(false).catch(console.error);
+          await new Promise(resolve => setTimeout(resolve, wrongSoundDuration || 1000));
+        }
+
+        router.push({
+          pathname: '/gameover',
+          params: { finalScore: score }
+        });
+      } else {
+        // Play wrong sound but continue game
+        if (isAudioReady) {
+          await playSound(false).catch(console.error);
+        }
+        setMessage(`Wrong! Try again! ${lives - 1} ${lives - 1 === 1 ? 'life' : 'lives'} remaining`);
+      }
+      
       return { isCorrect: false };
     }
   };
 
-  // Handle image load complete
-  const handleImageLoadComplete = () => {
-    setCurrentImageLoading(false);
-  };
-
-  // Reset game
-  const resetGame = () => {
+  // Reset game with music
+  const resetGame = async () => {
+    if (backgroundMusic) {
+      try {
+        await backgroundMusic.stopAsync();
+        await backgroundMusic.setPositionAsync(0);
+        await backgroundMusic.setVolumeAsync(0.01);
+        await backgroundMusic.playAsync();
+      } catch (error) {
+        console.error('Error restarting background music:', error);
+      }
+    }
+    
+    setLives(INITIAL_LIVES);
     initializeGame();
   };
 
@@ -328,11 +395,11 @@ const useGameLogic = () => {
     nextEvent,
     message,
     score,
+    lives,
     isLoading,
     error,
     currentImageLoading,
     handleAnswer,
-    handleImageLoadComplete,
     resetGame,
     formatEventDate,
     isAudioReady

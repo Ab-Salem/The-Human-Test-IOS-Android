@@ -14,6 +14,7 @@ import {
 import { useGameLogic } from './gameLogic';
 import { formatEventDate } from './dataParser';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { FontAwesome } from '@expo/vector-icons';
 
 export default function GameScreen() {
   const {
@@ -21,10 +22,12 @@ export default function GameScreen() {
     nextEvent,
     message,
     score,
+    lives,
     handleAnswer,
     isLoading,
   } = useGameLogic();
   
+  const isGameOver = lives <= 0;
   const insets = useSafeAreaInsets();
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
@@ -56,6 +59,16 @@ export default function GameScreen() {
     );
   }
 
+  const renderHeart = (index: number) => (
+    <FontAwesome 
+      key={index}
+      name="heart"
+      size={28}
+      color={index < lives ? '#ff0000' : '#000000'}
+      style={styles.heart}
+    />
+  );
+
   return (
     <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
       <View style={[styles.content, { 
@@ -64,7 +77,10 @@ export default function GameScreen() {
       }]}>
         {message && (
           <Animated.View style={[styles.messageContainer, { opacity: fadeAnim }]}>
-            <Text style={styles.message}>{message}</Text>
+            <Text style={[
+              styles.message,
+              message.includes('Wrong') && styles.wrongMessage
+            ]}>{message}</Text>
           </Animated.View>
         )}
 
@@ -98,26 +114,40 @@ export default function GameScreen() {
                   style={({ pressed }) => [
                     styles.button,
                     styles.beforeButton,
-                    pressed && styles.buttonPressed
+                    pressed && !isGameOver && styles.buttonPressed,
+                    isGameOver && styles.buttonDisabled
                   ]}
                   onPress={() => handleAnswer(true)}
+                  disabled={isGameOver}
                 >
-                  <Text style={styles.buttonText}>BEFORE</Text>
+                  <Text style={[
+                    styles.buttonText,
+                    isGameOver && styles.buttonTextDisabled
+                  ]}>BEFORE</Text>
                 </Pressable>
 
-                <View style={styles.scoreContainer}>
-                  <Text style={styles.score}>{score}</Text>
+                <View style={styles.middleSection}>
+                  {renderHeart(0)}
+                  <View style={styles.scoreContainer}>
+                    <Text style={styles.score}>{score}</Text>
+                  </View>
+                  {renderHeart(1)}
                 </View>
 
                 <Pressable
                   style={({ pressed }) => [
                     styles.button,
                     styles.afterButton,
-                    pressed && styles.buttonPressed
+                    pressed && !isGameOver && styles.buttonPressed,
+                    isGameOver && styles.buttonDisabled
                   ]}
                   onPress={() => handleAnswer(false)}
+                  disabled={isGameOver}
                 >
-                  <Text style={styles.buttonText}>AFTER</Text>
+                  <Text style={[
+                    styles.buttonText,
+                    isGameOver && styles.buttonTextDisabled
+                  ]}>AFTER</Text>
                 </Pressable>
               </View>
             </View>
@@ -197,6 +227,19 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     gap: 10,
   },
+  middleSection: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+    marginHorizontal: 10,
+  },
+  heart: {
+    shadowColor: '#000',
+    shadowOffset: { width: 1, height: 1 },
+    shadowOpacity: 0.5,
+    shadowRadius: 2,
+  },
   scoreContainer: {
     backgroundColor: '#2ca9e3',
     width: 45,
@@ -206,7 +249,6 @@ const styles = StyleSheet.create({
     borderRadius: 23,
     borderWidth: 2,
     borderColor: '#057f99',
-    marginHorizontal: 10,
   },
   button: {
     width: 110,
@@ -279,5 +321,16 @@ const styles = StyleSheet.create({
     textShadowColor: 'rgba(0,0,0,0.75)',
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 2,
+  },
+  wrongMessage: {
+    backgroundColor: '#d41111',
+  },
+  buttonDisabled: {
+    backgroundColor: '#666',
+    borderColor: '#444',
+    opacity: 0.5,
+  },
+  buttonTextDisabled: {
+    color: '#999',
   },
 });
