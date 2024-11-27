@@ -51,7 +51,7 @@ const useGameLogic = () => {
 
         const correctSoundAsset = require('../assets/audio/correct.wav');
         const wrongSoundAsset = require('../assets/audio/wrong.mp3');
-        const backgroundMusicAsset = require('../assets/audio/background_music.wav');
+        const backgroundMusicAsset = require('../assets/audio/background_music.mp3');
 
         const [correctResult, wrongResult, musicResult] = await Promise.all([
           Audio.Sound.createAsync(
@@ -74,7 +74,7 @@ const useGameLogic = () => {
             backgroundMusicAsset,
             {
               shouldPlay: true,
-              volume: 0.3, // Lower volume for background music
+              volume: 0.1, // Lower volume for background music
               isLooping: true,
               androidImplementation: Platform.OS === 'android' ? 'OpenSLES' : undefined,
             }
@@ -177,7 +177,7 @@ const useGameLogic = () => {
         // Restore background music volume after sound effect
         setTimeout(async () => {
           if (backgroundMusic) {
-            await backgroundMusic.setVolumeAsync(0.3);
+            await backgroundMusic.setVolumeAsync(0.1);
           }
         }, soundDuration || 1000);
 

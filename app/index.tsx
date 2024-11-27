@@ -187,7 +187,7 @@ export default function IntroScreen() {
         await new Promise(resolve => setTimeout(resolve, 500));
         if (!animationSequenceActive.current) return;
         showDialogue("Take this test to prove you are human.", "alien");
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        await new Promise(resolve => setTimeout(resolve, 500));
         if (!animationSequenceActive.current) return;
         
         hideDialogue();

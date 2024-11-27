@@ -64,7 +64,7 @@ export default function GameScreen() {
       key={index}
       name="heart"
       size={28}
-      color={index < lives ? '#ff0000' : '#000000'}
+      color={index < lives ? '#ffffff' : '#000000'}
       style={styles.heart}
     />
   );
@@ -225,13 +225,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 10,
-    gap: 10,
+    gap: 3,
   },
   middleSection: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 8,
+    gap: 5,
     marginHorizontal: 10,
   },
   heart: {

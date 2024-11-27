@@ -19,7 +19,6 @@ export default function GameOverScreen() {
   const [showContent, setShowContent] = useState(false);
   const [showRocket, setShowRocket] = useState(true);
   
-  // Fix: Make refs mutable
   const fallingSoundRef = useRef<Audio.Sound>();
   const explosionSoundRef = useRef<Audio.Sound>();
   
@@ -36,12 +35,12 @@ export default function GameOverScreen() {
   const playSound = async (
     soundAsset: SoundAsset, 
     soundRef: React.MutableRefObject<Audio.Sound | undefined>,
-    volume: number = 1.0 // Default to full volume if not specified
+    volume: number = 1.0
   ) => {
     try {
       const { sound } = await Audio.Sound.createAsync(
         soundAsset,
-        { volume: volume }  // Add volume control
+        { volume: volume }
       );
       soundRef.current = sound;
       await sound.playAsync();
@@ -49,7 +48,6 @@ export default function GameOverScreen() {
       console.error('Error playing sound:', error);
     }
   };
-  
 
   useEffect(() => {
     const prepare = async () => {
@@ -63,7 +61,6 @@ export default function GameOverScreen() {
   }, [fontsLoaded]);
 
   useEffect(() => {
-    // Configure audio
     const setupAudio = async () => {
       await Audio.setAudioModeAsync({
         playsInSilentModeIOS: true,
@@ -72,10 +69,9 @@ export default function GameOverScreen() {
     };
     setupAudio();
 
-    // Play falling sound immediately
-    playSound(fallingSoundAsset, fallingSoundRef, 0.02); // Adjust this value between 0.0 and 1.0
+    playSound(fallingSoundAsset, fallingSoundRef, 0.02);
 
-    // Start rocket movement animation
+    // Only animate position, not rotation
     Animated.parallel([
       Animated.timing(translateX, {
         toValue: width * 0.5,
@@ -90,10 +86,7 @@ export default function GameOverScreen() {
     ]).start();
 
     const startSequence = async () => {
-      // Wait longer for rocket animation
       await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // Play explosion sound and start animation
       explosionRef.current?.play();
       await new Promise(resolve => setTimeout(resolve, 500));
       playSound(explosionSoundAsset, explosionSoundRef, 0.3);
@@ -103,7 +96,6 @@ export default function GameOverScreen() {
 
     startSequence();
 
-    // Cleanup function
     return () => {
       const cleanup = async () => {
         if (fallingSoundRef.current) {
@@ -148,6 +140,7 @@ export default function GameOverScreen() {
             transform: [
               { translateX: translateX },
               { translateY: translateY },
+              { rotate: '200deg' } // Static rotation of 120 degrees
             ]
           }
         ]}>
@@ -156,6 +149,7 @@ export default function GameOverScreen() {
             source={require('../assets/animation/rocket.json')}
             style={styles.rocketAnimation}
             loop={false}
+            autoPlay={false}
             speed={1}
           />
         </Animated.View>
@@ -170,8 +164,8 @@ export default function GameOverScreen() {
       
       {showContent && (
         <View style={styles.contentContainer}>
-          <Text style={styles.title}>Game Over!</Text>
-          <Text style={styles.message}>Better luck next time!</Text>
+          <Text style={styles.title}>You Suck!</Text>
+          <Text style={styles.message}>You dont know anything about humans.</Text>
           
           <Pressable
             style={styles.button}
@@ -219,8 +213,8 @@ const styles = StyleSheet.create({
     left: -75,
   },
   rocketAnimation: {
-    width: width * 0.3,
-    height: width * 0.3,
+    width: width * 0.6, // Increased size
+    height: width * 0.6, // Increased size
   },
   explosionAnimation: {
     position: 'absolute',
@@ -248,10 +242,11 @@ const styles = StyleSheet.create({
   },
   message: {
     fontFamily: 'IMFellDWPica',
-    fontSize: 30,
+    fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 40,
-    color: 'Black',
+    color: 'black',
+    
   },
   button: {
     backgroundColor: 'rgba(255, 255, 255, 0.9)',
